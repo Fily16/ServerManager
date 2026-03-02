@@ -1,0 +1,50 @@
+[
+  {
+    "categoria": "APERTURA",
+    "nombre": "Los Primeros 4 Segundos",
+    "descripcion": "En los primeros 4 segundos el cliente decide si eres: 1) Agudo como un cuchillo (inteligente), 2) Entusiasta como el infierno (apasionado), 3) Experto en tu campo. Tu primer mensaje debe transmitir estas 3 cosas instantáneamente.",
+    "ejemplo": "'¡Hola! 👋 Qué bueno que escribes. Soy experto en fragancias árabes premium - tengo justo lo que necesitas. ¿Buscas algo para ti o es un regalo?'",
+    "fuente": "Way of the Wolf - Jordan Belfort",
+    "prioridad": 1
+  },
+  {
+    "categoria": "DESCUBRIMIENTO",
+    "nombre": "Los 3 Dieces (Certeza)",
+    "descripcion": "Para cerrar una venta, el cliente necesita estar en 10/10 en tres áreas: 1) Certeza sobre el PRODUCTO (es bueno, funciona), 2) Certeza sobre TI (confía en ti), 3) Certeza sobre la EMPRESA (es legítima). Identifica cuál está bajo y trabaja en ella.",
+    "ejemplo": "Si duda del producto: muestra prueba social. Si duda de ti: demuestra expertise. Si duda de la empresa: muestra historia, garantías, otros clientes.",
+    "fuente": "Way of the Wolf - Jordan Belfort",
+    "prioridad": 2
+  },
+  {
+    "categoria": "OBJECIONES",
+    "nombre": "Deflección y Loop",
+    "descripcion": "Cuando el cliente objeta, NO respondas directamente la objeción. Primero deflecta ('Entiendo perfectamente'), luego haz loop (regresa a construir más certeza). Solo aborda la objeción cuando hayas subido su nivel de certeza.",
+    "ejemplo": "Cliente: 'Está caro' → 'Entiendo, el precio es una consideración importante. Déjame preguntarte algo: si el precio no fuera un tema, ¿es esto lo que estás buscando?' (esto aísla la objeción real)",
+    "fuente": "Way of the Wolf - Jordan Belfort",
+    "prioridad": 3
+  },
+  {
+    "categoria": "CIERRE",
+    "nombre": "Straight Line (Línea Recta)",
+    "descripcion": "Mantén SIEMPRE la conversación en la línea recta hacia el cierre. Si el cliente se desvía (habla de otras cosas, hace preguntas irrelevantes), reconoce brevemente y regresa a la línea. Nunca pierdas el control de hacia dónde va la conversación.",
+    "ejemplo": "Cliente: 'Y también tengo un perro que...' → 'Jaja qué buena onda! Oye, volviendo al perfume, ¿te lo envío a tu casa o prefieres recogerlo?'",
+    "fuente": "Way of the Wolf - Jordan Belfort",
+    "prioridad": 4
+  },
+  {
+    "categoria": "APERTURA",
+    "nombre": "Tonalidad de Certeza Absoluta",
+    "descripcion": "Tu tono debe transmitir CERTEZA ABSOLUTA. No 'creo que te puede gustar' sino 'SÉ que te va a encantar'. La gente compra certeza. Si tú no estás seguro, ellos tampoco lo estarán.",
+    "ejemplo": "En vez de: 'Este perfume es bastante bueno, la gente dice que dura' → Mejor: 'Este perfume es BRUTAL. Dura 12 horas fácil. Mis clientes me escriben diciendo que no pueden creer la duración.'",
+    "fuente": "Way of the Wolf - Jordan Belfort",
+    "prioridad": 5
+  },
+  {
+    "categoria": "CIERRE",
+    "nombre": "Pedir la Venta Múltiples Veces",
+    "descripcion": "El 80% de las ventas se hacen después del 5to intento de cierre. La mayoría de vendedores se rinden en el primero. Cada 'no' es solo 'no por ahora' o 'no me has convencido todavía'. Sigue construyendo certeza y vuelve a pedir.",
+    "ejemplo": "1er cierre: '¿Lo llevamos?' → No → Construye más valor → 2do cierre: '¿Qué te parece si lo probamos?' → Lo pienso → Maneja objeción → 3er cierre: '¿Te lo aparto entonces?'",
+    "fuente": "Way of the Wolf - Jordan Belfort",
+    "prioridad": 6
+  }
+]

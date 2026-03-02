@@ -1,0 +1,50 @@
+[
+  {
+    "categoria": "APERTURA",
+    "nombre": "Etiquetado Emocional",
+    "descripcion": "Identifica la emoción del cliente y nómbrala en voz alta: 'Parece que estás frustrado con...' o 'Suena como que es importante para ti...'. Esto hace que el cliente se sienta comprendido y baja sus defensas instantáneamente.",
+    "ejemplo": "Cliente: 'Es que siempre los perfumes me duran nada!!' → 'Parece que estás frustrado de gastar dinero en fragancias que desaparecen en 2 horas. Te entiendo perfectamente. Por eso te recomiendo este...'",
+    "fuente": "Never Split the Difference - Chris Voss",
+    "prioridad": 1
+  },
+  {
+    "categoria": "DESCUBRIMIENTO",
+    "nombre": "Preguntas Calibradas",
+    "descripcion": "Usa preguntas que empiecen con 'Cómo' o 'Qué' en lugar de 'Por qué'. 'Por qué' pone a la gente a la defensiva. 'Cómo' y 'Qué' los hace pensar y colaborar contigo.",
+    "ejemplo": "En vez de: '¿Por qué no quieres comprarlo?' → Mejor: '¿Qué tendría que pasar para que te sintieras cómodo con esta compra?' o '¿Cómo puedo ayudarte a tomar esta decisión?'",
+    "fuente": "Never Split the Difference - Chris Voss",
+    "prioridad": 2
+  },
+  {
+    "categoria": "OBJECIONES",
+    "nombre": "El Espejo",
+    "descripcion": "Repite las últimas 1-3 palabras que dijo el cliente en forma de pregunta. Esto los hace elaborar más y te da información valiosa. También demuestra que estás escuchando.",
+    "ejemplo": "Cliente: 'Es que mi esposa siempre se queja de mis perfumes' → Tú: '¿Se queja de tus perfumes?' → Cliente: 'Sí, dice que huelen muy fuerte o muy dulces' → Ahora sabes exactamente qué recomendar.",
+    "fuente": "Never Split the Difference - Chris Voss",
+    "prioridad": 3
+  },
+  {
+    "categoria": "OBJECIONES",
+    "nombre": "Acusación Adelantada",
+    "descripcion": "Menciona lo negativo ANTES de que el cliente lo haga. 'Probablemente pienses que esto es caro...' Esto desarma la objeción porque ya la reconociste y le quita poder.",
+    "ejemplo": "'Sé que S/180 puede sonar como mucho para un perfume al principio. Probablemente estés pensando que puedes conseguir algo más barato en una tienda. Pero déjame explicarte por qué este vale cada centavo...'",
+    "fuente": "Never Split the Difference - Chris Voss",
+    "prioridad": 4
+  },
+  {
+    "categoria": "CIERRE",
+    "nombre": "El 'No' Estratégico",
+    "descripcion": "A veces es mejor que el cliente diga 'No' a algo para que se sienta en control. Pregunta de forma que 'No' sea la respuesta que quieres. 'No' hace que la gente se sienta segura.",
+    "ejemplo": "'¿Sería ridículo pensar que quieres oler increíble todos los días?' (El cliente dice 'No, no sería ridículo') - Acabas de conseguir que afirme que quiere lo que vendes.",
+    "fuente": "Never Split the Difference - Chris Voss",
+    "prioridad": 5
+  },
+  {
+    "categoria": "APERTURA",
+    "nombre": "Voz de DJ de Radio Nocturno",
+    "descripcion": "Usa un tono de voz calmado, profundo y tranquilo. Esta voz transmite control y confianza. Evita sonar desesperado, ansioso o agresivo. En texto: usa puntos en lugar de signos de exclamación excesivos, no escribas todo en mayúsculas.",
+    "ejemplo": "En vez de: '¡¡¡INCREÍBLE OFERTA SOLO POR HOY!!!' → Mejor: 'Tengo algo que creo te va a interesar. Es una oferta especial que solo puedo mantener hasta hoy.'",
+    "fuente": "Never Split the Difference - Chris Voss",
+    "prioridad": 6
+  }
+]
