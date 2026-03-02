@@ -16,8 +16,7 @@ app.use(express.json({ limit: '10mb' }));
 const PORT = process.env.PORT || 3001;
 const AUTH_DIR = path.join(__dirname, 'auth');
 const MAX_RETRIES = 5;
-const BACKEND_WEBHOOK_URL = 'http://localhost:8085/webhook/evolution';
-
+const BACKEND_WEBHOOK_URL = process.env.BACKEND_URL || 'http://localhost:8085/webhook/evolution';
 // --- Multi-Instance State ---
 // Map<instanceName, { sock, currentQR, qrBase64, connectionStatus, retryCount, manualReconnect }>
 const instances = new Map();
@@ -52,8 +51,12 @@ async function connectWhatsApp(instanceName) {
   const sock = makeWASocket({
     version,
     auth: state,
-    logger: pino({ level: 'silent' }),
-    browser: ['ServerManager', 'Chrome', '1.0.0'],
+    logger: pino({ level: 'silent' }), // Puedes poner 'info' si quieres ver más detalles
+    browser: ['Ubuntu', 'Chrome', '20.0.04'], // Cambiamos la firma para que WhatsApp sea más amigable
+    connectTimeoutMs: 60000, // ¡CLAVE! Le damos 60 segundos a Render para procesar en vez de los 20s por defecto
+    defaultQueryTimeoutMs: 0, // Evita que se corten consultas internas por lentitud
+    keepAliveIntervalMs: 10000,
+    syncFullHistory: false, // Evitamos que intente descargar todo el historial de chats al conectar
   });
 
   instance.sock = sock;
