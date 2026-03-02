@@ -353,7 +353,7 @@ app.post('/api/:instance/reconnect', requireInstance, async (req, res) => {
     instance.connectionStatus = 'connecting';
     instance.currentQR = null;
     instance.qrBase64 = null;
-
+    instance.manualReconnect = false;
     // Small delay to let old socket fully clean up
     await new Promise(resolve => setTimeout(resolve, 1000));
 
