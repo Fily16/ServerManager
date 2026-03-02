@@ -464,15 +464,26 @@ public class WhatsAppServiceImpl implements WhatsAppService {
 
     private String buildBaileysUrl(ConfiguracionBot config, String endpoint) {
         String baseUrl = config.getEvolutionApiUrl();
-        if (baseUrl == null || baseUrl.trim().isEmpty()) {
-            throw new IllegalArgumentException("La URL de Baileys no esta configurada en la BD");
+
+        // 1. FOOLPROOF: Si la base de datos devuelve null, vacío, o algo sin "http", forzamos la URL correcta.
+        if (baseUrl == null || !baseUrl.startsWith("http")) {
+            log.warn("ATENCION: La URL en la BD era invalida ('{}'). Forzando la URL real de Render.", baseUrl);
+            baseUrl = "https://whatsapp-baileys-bot.onrender.com/api";
         }
-        // Limpiar espacios y barras al final para evitar URLs malformadas
+
+        // 2. Limpiar espacios o barras accidentales al final
         baseUrl = baseUrl.trim();
         if (baseUrl.endsWith("/")) {
             baseUrl = baseUrl.substring(0, baseUrl.length() - 1);
         }
-        return baseUrl + "/" + config.getEvolutionInstancia() + endpoint;
+
+        // 3. Construir la URL final
+        String finalUrl = baseUrl + "/" + config.getEvolutionInstancia() + endpoint;
+
+        // 4. Imprimir la URL exacta en los logs para monitorearla
+        log.info("URL construida para Baileys: {}", finalUrl);
+
+        return finalUrl;
     }
 
     private SendMessageResponse sendToEvolutionApi(ConfiguracionBot config, SendMessageRequest request) {
