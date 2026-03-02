@@ -463,7 +463,16 @@ public class WhatsAppServiceImpl implements WhatsAppService {
     }
 
     private String buildBaileysUrl(ConfiguracionBot config, String endpoint) {
-        return config.getEvolutionApiUrl() + "/" + config.getEvolutionInstancia() + endpoint;
+        String baseUrl = config.getEvolutionApiUrl();
+        if (baseUrl == null || baseUrl.trim().isEmpty()) {
+            throw new IllegalArgumentException("La URL de Baileys no esta configurada en la BD");
+        }
+        // Limpiar espacios y barras al final para evitar URLs malformadas
+        baseUrl = baseUrl.trim();
+        if (baseUrl.endsWith("/")) {
+            baseUrl = baseUrl.substring(0, baseUrl.length() - 1);
+        }
+        return baseUrl + "/" + config.getEvolutionInstancia() + endpoint;
     }
 
     private SendMessageResponse sendToEvolutionApi(ConfiguracionBot config, SendMessageRequest request) {
