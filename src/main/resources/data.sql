@@ -151,7 +151,7 @@ SELECT 1, true, CURRENT_TIMESTAMP, '10123456789', 'AromaStudio', 'PRO'
 WHERE NOT EXISTS (SELECT 1 FROM empresa WHERE id = 1);
 
 INSERT INTO configuracion_bot (id, activo, auto_respuesta, empresa_id, evolution_api_url, evolution_api_key, evolution_instancia, nombre_bot, tono_conversacion, tiempo_entrega, link_tiktok, fecha_creacion)
-SELECT 1, true, false, 1, 'http://localhost:3001/api', '', 'AromaStudio', 'Bot Perfumero', 'AMIGABLE', '1 a 2 semanas', 'https://www.tiktok.com/@aromastudio', CURRENT_TIMESTAMP
+SELECT 1, true, false, 1, 'https://whatsapp-baileys-bot.onrender.com/api', '', 'AromaStudio', 'Bot Perfumero', 'AMIGABLE', '1 a 2 semanas', 'https://www.tiktok.com/@aromastudio', CURRENT_TIMESTAMP
 WHERE NOT EXISTS (SELECT 1 FROM configuracion_bot WHERE id = 1);
 
 -- ==================== SEGUNDA EMPRESA (para tu compañero) ====================
@@ -161,7 +161,7 @@ SELECT 2, true, CURRENT_TIMESTAMP, '20987654321', 'NegocioSocio', 'PRO'
 WHERE NOT EXISTS (SELECT 1 FROM empresa WHERE id = 2);
 
 INSERT INTO configuracion_bot (id, activo, auto_respuesta, empresa_id, evolution_api_url, evolution_api_key, evolution_instancia, nombre_bot, tono_conversacion, tiempo_entrega, fecha_creacion)
-SELECT 2, true, false, 2, 'http://localhost:3001/api', '', 'NegocioSocio', 'Bot Socio', 'AMIGABLE', '3 a 5 dias', CURRENT_TIMESTAMP
+SELECT 2, true, false, 2, 'https://whatsapp-baileys-bot.onrender.com/api', '', 'NegocioSocio', 'Bot Socio', 'AMIGABLE', '3 a 5 dias', CURRENT_TIMESTAMP
 WHERE NOT EXISTS (SELECT 1 FROM configuracion_bot WHERE id = 2);
 
 -- ==================== USUARIOS ====================
@@ -174,3 +174,5 @@ WHERE NOT EXISTS (SELECT 1 FROM usuario WHERE id = 1);
 INSERT INTO usuario (id, email, password, nombre, empresa_id, activo, fecha_creacion)
 SELECT 2, 'admin@negociosocio.com', '$2b$10$FM44dP3RzORti2EMDc8JaOKIqOlrMZAQtFhUtryYMC2nrYi4EC74q', 'Admin Socio', 2, true, CURRENT_TIMESTAMP
 WHERE NOT EXISTS (SELECT 1 FROM usuario WHERE id = 2);
+-- Forzar la actualizacion de las URLs en las empresas existentes
+UPDATE configuracion_bot SET evolution_api_url = 'https://whatsapp-baileys-bot.onrender.com/api';
