@@ -9,5 +9,6 @@ RUN ./mvnw clean package -DskipTests -q
 FROM eclipse-temurin:17-jre-alpine
 WORKDIR /app
 COPY --from=build /app/target/ServerManager-0.0.1-SNAPSHOT.jar app.jar
-EXPOSE 8085
-ENTRYPOINT ["java", "-jar", "app.jar", "--spring.profiles.active=prod"]
+ENV PORT=10000
+EXPOSE ${PORT}
+ENTRYPOINT ["java", "-XX:+UseSerialGC", "-Xmx350m", "-Xms200m", "-jar", "app.jar", "--spring.profiles.active=prod"]

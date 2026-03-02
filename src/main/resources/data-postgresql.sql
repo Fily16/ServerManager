@@ -180,10 +180,4 @@ INSERT INTO usuario (id, email, password, nombre, empresa_id, activo, fecha_crea
 SELECT 2, 'admin@negociosocio.com', '$2b$10$FM44dP3RzORti2EMDc8JaOKIqOlrMZAQtFhUtryYMC2nrYi4EC74q', 'Admin Socio', 2, true, CURRENT_TIMESTAMP
 WHERE NOT EXISTS (SELECT 1 FROM usuario WHERE id = 2);
 
--- ==================== SECUENCIAS ====================
--- Actualizar secuencias para que los proximos INSERTs auto-incrementen correctamente
-SELECT setval(pg_get_serial_sequence('empresa', 'id'), COALESCE((SELECT MAX(id) FROM empresa), 1));
-SELECT setval(pg_get_serial_sequence('configuracion_bot', 'id'), COALESCE((SELECT MAX(id) FROM configuracion_bot), 1));
-SELECT setval(pg_get_serial_sequence('usuario', 'id'), COALESCE((SELECT MAX(id) FROM usuario), 1));
-SELECT setval(pg_get_serial_sequence('configuracion_saas', 'id'), COALESCE((SELECT MAX(id) FROM configuracion_saas), 1));
-SELECT setval(pg_get_serial_sequence('tecnica_venta', 'id'), COALESCE((SELECT MAX(id) FROM tecnica_venta), 1));
+-- Las secuencias se ajustan automaticamente con IDENTITY strategy
