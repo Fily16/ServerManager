@@ -28,10 +28,11 @@ public class EvolutionGroupServiceImpl implements EvolutionGroupService {
     public List<GroupInfo> listarGrupos(Long empresaId) {
         ConfiguracionBot config = getConfig(empresaId);
 
-        // Baileys service: GET /api/{instancia}/groups
-        String url = config.getEvolutionApiUrl() + "/" + config.getEvolutionInstancia() + "/groups";
+        // Usamos nuestro método blindado para construir la URL
+        String url = buildBaileysUrl(config, "/groups");
 
         log.info("Listando grupos para empresa {} desde WhatsApp Service", empresaId);
+        log.info("URL de peticion: {}", url);
 
         try {
             ResponseEntity<List<GroupInfo>> response = restTemplate.exchange(
@@ -59,8 +60,8 @@ public class EvolutionGroupServiceImpl implements EvolutionGroupService {
     public List<GroupParticipant> obtenerParticipantes(Long empresaId, String groupJid) {
         ConfiguracionBot config = getConfig(empresaId);
 
-        // Baileys service: GET /api/{instancia}/groups/:jid/participants
-        String url = config.getEvolutionApiUrl() + "/" + config.getEvolutionInstancia() + "/groups/" + groupJid + "/participants";
+        // Usamos nuestro método blindado para construir la URL
+        String url = buildBaileysUrl(config, "/groups/" + groupJid + "/participants");
 
         log.info("Obteniendo participantes del grupo {} para empresa {}", groupJid, empresaId);
 
@@ -97,5 +98,23 @@ public class EvolutionGroupServiceImpl implements EvolutionGroupService {
     private ConfiguracionBot getConfig(Long empresaId) {
         return configuracionBotRepository.findByEmpresaId(empresaId)
                 .orElseThrow(() -> new ResourceNotFoundException("ConfiguracionBot", "empresaId", empresaId));
+    }
+
+    // --- EL BLINDAJE PARA LA URL ---
+    private String buildBaileysUrl(ConfiguracionBot config, String endpoint) {
+        String baseUrl = config.getEvolutionApiUrl();
+
+        // Si la base de datos devuelve basura o no tiene http, forzamos la de Render
+        if (baseUrl == null || !baseUrl.startsWith("http")) {
+            log.warn("ATENCION (Grupos): La URL en la BD era invalida ('{}'). Forzando la URL real de Render.", baseUrl);
+            baseUrl = "https://whatsapp-baileys-bot.onrender.com/api";
+        }
+
+        baseUrl = baseUrl.trim();
+        if (baseUrl.endsWith("/")) {
+            baseUrl = baseUrl.substring(0, baseUrl.length() - 1);
+        }
+
+        return baseUrl + "/" + config.getEvolutionInstancia() + endpoint;
     }
 }
